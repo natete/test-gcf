@@ -4,15 +4,35 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./tests --recursive"
+    "test": "mocha ./tests --recursive",
+    "pre-commit": "lint-staged && npm run test"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.2.0",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "lint-staged": "^8.0.5",
     "mocha": "^5.2.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "1.15.2",
     "sinon": "^7.1.1",
     "sinon-chai": "^3.2.0",
     "sinon-express-mock": "^2.1.0"
-  }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "pre-commit": [
+    "test"
+  ]
 }
